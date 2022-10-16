@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/16 17:43:55 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/16 17:47:34 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int ft_strlen(char *str)
 	if(!str)
 		return 0;
 	i = 0;
-	while(str[i++])
-		;
+	while(str[i])
+		i++;
 	return (i);
 }
 
