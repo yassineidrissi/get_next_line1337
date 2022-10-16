@@ -1,18 +1,26 @@
 {
   "version": "0.2.0",
   "configurations": [
-  {
-    "name": "(lldb) Launch",
-    "type": "cppdbg",
-    "request": "launch",
-    "program": "${workspaceFolder}/test",
-    "args": [],
-    "stopAtEntry": true,
-    "cwd": "${fileDirname}",
-    "environment": [],
-    "externalConsole": false,
-    "MIMode": "lldb"
-  },
+    {
+      "name": "(lldb) Lancer",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/get_next_line",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/get_next_line",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
@@ -20,8 +28,8 @@
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/yaidriss/Desktop/get_next_line",
-      "program": "/Users/yaidriss/Desktop/get_next_line/build/Debug/outDebug",
+      "cwd": "/Users/yassine/Desktop/42_project/get_next_line1337",
+      "program": "/Users/yassine/Desktop/42_project/get_next_line1337/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb"
     }

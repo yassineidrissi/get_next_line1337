@@ -20,15 +20,14 @@ char	*get_next_line(int fd)
 	int 		j;
 
 	buffer = NULL;
-	j = -1;
-	line = ft_calloc(BUFFER_SIZE + 1, 1);
+	line->data = ft_calloc(BUFFER_SIZE + 1, 1);
 	if (fd < 0 || fd >= MAX_FD_SIZE)
 		return NULL;
 	// printf("the line now is %s\n",line);
 	while(read(fd, line->data, BUFFER_SIZE))
 	{
 		// printf("the buffer now is %s\n",buffer);
-		if (!ft_strchr(line->data,'\n'))
+		if (ft_strchr(line->data,'\n'))
 		{
 			line->next = daka_dyali(line);
 			line->output = ft_strjoin(buffer, line->data);
@@ -38,7 +37,7 @@ char	*get_next_line(int fd)
 		{
 			tmp = buffer;
 			buffer = ft_strjoin(buffer, line->data);
-			ft_bzero(tmp, BUFFER_SIZE);
+			// ft_bzero(tmp, BUFFER_SIZE);
 			free(tmp);
 			free(line->data);
 		}		

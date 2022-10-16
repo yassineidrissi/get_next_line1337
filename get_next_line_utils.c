@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/16 15:13:56 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:44:06 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int ft_strlen(const char *str)
+int ft_strlen(char *str)
 {
 	int i;
 
 	i = 0;
-	while(str[i])
-		i++;
+	while(str[i++])
+		;
 	return (i);
 }
 
@@ -63,7 +63,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	result = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	result = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
 	if (!result)
 		return (NULL);
 	while (s1[j])
@@ -85,10 +85,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	j = 0;
 	if (!s)
 		return (NULL);
-	if (len < 0 || ft_strlen(s) < (int)start)
+	if (len < 0 || ft_strlen((char *)s) < (int)start)
 		result = malloc(sizeof(*s));
-	else if (ft_strlen(s) + len < start)
-		result = malloc((ft_strlen(s) - start + 1) * sizeof(*s));
+	else if (ft_strlen((char *)s) + len < start)
+		result = malloc((ft_strlen((char *)s) - start + 1) * sizeof(*s));
 	else
 		result = malloc((len + 1) * sizeof(*s));
 	if (!result)
