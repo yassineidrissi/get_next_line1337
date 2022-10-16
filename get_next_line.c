@@ -30,13 +30,13 @@ char	*get_next_line(int fd)
 		if (ft_strchr(line->data,'\n'))
 		{
 			line = daka_dyali(line);
-			line->output = ft_strjoin(buffer, line->data);
+			line->output = ft_strjoin(buffer, line->data, 0);
 			buffer = tmp;
 		}
 		else
 		{
 			tmp = buffer;
-			buffer = ft_strjoin(buffer, line->data);
+			buffer = ft_strjoin(buffer, line->data, 1);
 			// ft_bzero(tmp, BUFFER_SIZE);
 			free(tmp);
 			free(line->data);

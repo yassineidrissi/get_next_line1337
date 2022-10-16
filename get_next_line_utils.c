@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/16 17:14:10 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/16 17:24:29 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 int ft_strlen(char *str)
 {
 	int i;
-
+	if(!str)
+		return 0;
 	i = 0;
 	while(str[i++])
 		;
 	return (i);
 }
 
-char	*ft_strchr(const char	*s, int c)
+char	*ft_strchr(char	*s, int c)
 {
 	int		i;
 	char	*s1;
@@ -53,7 +54,7 @@ void	ft_bzero(void *s, size_t n)
 		b[i] = 0;
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2, int alloc)
 {
 	size_t	i;
 	size_t	j;
@@ -63,19 +64,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!s1 && !s2)
 		return (NULL);
-	result = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	result = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!result)
 		return (NULL);
-	while (s1[j])
+	while (s1 && s1[j])
 		result[i++] = s1[j++];
 	j = 0;
-	while (s2[j])
+	while (s2 && s2[j])
 		result[i++] = s2[j++];
 	result[i] = 0;
+	if (alloc)
+		free(s2);
 	return (result);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	j;
