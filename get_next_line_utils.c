@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/16 17:24:29 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/16 17:43:55 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ char	*ft_strchr(char	*s, int c)
 	int		i;
 	char	*s1;
 	int		n;
-
+	
+	if(!s)
+		return NULL;
 	i = 0;
 	s1 = (char *)s;
 	n = ft_strlen(s1);
@@ -74,7 +76,7 @@ char	*ft_strjoin(char *s1, char *s2, int alloc)
 		result[i++] = s2[j++];
 	result[i] = 0;
 	if (alloc)
-		free(s2);
+		free(s1);
 	return (result);
 }
 
@@ -115,7 +117,7 @@ t_get	*daka_dyali(t_get *s)
 		i++;
 	s->index = i;
 	*(s->data + i) = '\0';
-	s->next = &(s->data[i + 1]);
+	s->next = ft_strjoin(s->data + i, NULL, 0);
 	return (s);
 }
 
