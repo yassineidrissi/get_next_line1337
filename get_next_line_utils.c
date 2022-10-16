@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/15 20:18:40 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:13:56 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (result);
 }
 
-char *daka_dyali(char *s)
+char *daka_dyali(t_get *s)
 {
 	int i;
 
 	i = 0;
-	while(s[i] != '\n')
+	while(*(s->data + i) != '\n')
 		i++;
-	s[i] = '\0';
-	return (&s[i + 1]);
+	s->index = i;
+	*(s->data + i) = '\0';
+	return (s->data);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char *p;
+	p = malloc(count * size);
+	ft_bzero(p, count * size);
+	return (p);
 }

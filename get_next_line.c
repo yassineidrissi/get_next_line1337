@@ -15,27 +15,33 @@
 char	*get_next_line(int fd)
 {
 	static char *buffer;
-	char 		*line;
+	t_get 		*line;
 	char		*tmp;
+	int 		j;
+
+	buffer = NULL;
+	j = -1;
+	line = ft_calloc(BUFFER_SIZE + 1, 1);
 	if (fd < 0 || fd >= MAX_FD_SIZE)
 		return NULL;
-	while(!ft_strchr(buffer, '\n') && read(fd, line, BUFFER_SIZE))
+	// printf("the line now is %s\n",line);
+	while(read(fd, line->data, BUFFER_SIZE))
 	{
-		if (!ft_strchr(line,'\n'))
+		// printf("the buffer now is %s\n",buffer);
+		if (!ft_strchr(line->data,'\n'))
 		{
-
-			tmp = daka_dyali(line);
-			line = ft_strjoin(buffer, line);
+			line->next = daka_dyali(line);
+			line->output = ft_strjoin(buffer, line->data);
 			buffer = tmp;
 		}
 		else
 		{
 			tmp = buffer;
-			buffer = ft_strjoin(buffer, line);
+			buffer = ft_strjoin(buffer, line->data);
+			ft_bzero(tmp, BUFFER_SIZE);
 			free(tmp);
-			ft_bzero(line, BUFFER_SIZE);
-			free(line);
+			free(line->data);
 		}		
 	}
-	return (line);
+	return (line->output);
 }
