@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/16 15:44:06 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/16 17:14:10 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
 	result = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
 	if (!result)
@@ -103,7 +103,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (result);
 }
 
-char *daka_dyali(t_get *s)
+t_get	*daka_dyali(t_get *s)
 {
 	int i;
 
@@ -112,7 +112,8 @@ char *daka_dyali(t_get *s)
 		i++;
 	s->index = i;
 	*(s->data + i) = '\0';
-	return (s->data);
+	s->next = &(s->data[i + 1]);
+	return (s);
 }
 
 void	*ft_calloc(size_t count, size_t size)

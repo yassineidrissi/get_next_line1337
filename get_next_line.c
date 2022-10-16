@@ -29,7 +29,7 @@ char	*get_next_line(int fd)
 		// printf("the buffer now is %s\n",buffer);
 		if (ft_strchr(line->data,'\n'))
 		{
-			line->next = daka_dyali(line);
+			line = daka_dyali(line);
 			line->output = ft_strjoin(buffer, line->data);
 			buffer = tmp;
 		}
