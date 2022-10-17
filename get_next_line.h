@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:23:47 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/16 17:24:51 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:18:35 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include <stdio.h>
 
 # define MAX_FD_SIZE 1024
-# define BUFFER_SIZE 5
+
+# define BUFFER_SIZE 1
 
 typedef struct s_get
 {
