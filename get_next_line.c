@@ -34,6 +34,7 @@ char	*get_next_line(int fd)
 			line->output = ft_strjoin(buffer, line->data, 1);
 			buffer = line->next;
 			j = 1;
+			//test
 		}
 		else
 		{
