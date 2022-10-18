@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:23:47 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/17 17:18:35 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:16:38 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define MAX_FD_SIZE 1024
+# define MAX_FD_SIZE INT_MAX
 
+// # ifdef BUFFER_SIZE
 # define BUFFER_SIZE 1
 
 typedef struct s_get

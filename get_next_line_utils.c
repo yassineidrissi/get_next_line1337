@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student1337.com>        +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:19:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2022/10/17 19:24:24 by yaidriss         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:21:23 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ t_get	*daka_dyali(t_get *s)
 	s->index = i;
 	*(s->data + i) = '\0';
 	s->next = ft_strjoin(NULL, s->data + i + 1, 0);
-	s->output = ft_strjoin(s->data,NULL, 0);
+	s->output = ft_strjoin(s->data,"\n", 0);
 	return (s);
 }
 
